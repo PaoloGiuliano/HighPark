@@ -1,0 +1,7 @@
+{
+  "name": "HighPark",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
