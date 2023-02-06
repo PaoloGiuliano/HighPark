@@ -1,17 +1,77 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Tab 1
+      Score Grabber
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
+
+  <!-- Header -->
   <ion-header collapse="condense">
     <ion-toolbar>
-      <ion-title size="large">Tab 1</ion-title>
+      <ion-title size="large">Score</ion-title>
     </ion-toolbar>
   </ion-header>
 
-  <app-explore-container name="Tab 1 page"></app-explore-container>
+  <!-- Score Form -->
+  <!--  -->
+  <!-- add submit func to form when its created (ngSubmit)="onSubmit()" -->
+  <form [formGroup]="formData" (ngSubmit)="onSubmit()">
+
+  <!-- League Selection -->
+  <ion-list>
+    <ion-label class="ion-padding">League</ion-label>
+    <ion-item>
+      <ion-select formControlName="league" interface="popover" placeholder="Select League">
+        <ion-select-option value="League 1">League 1</ion-select-option>
+        <ion-select-option value="League 2">League 2</ion-select-option>
+        <ion-select-option value="League 3">League 3</ion-select-option>
+      </ion-select>
+    </ion-item>
+  </ion-list>
+  <!-- Team 1 Selection -->
+  <ion-list>
+    <ion-label class="ion-padding">Team 1</ion-label>
+    <ion-item>
+      <ion-select formControlName="team1" interface="popover" placeholder="Select Team 1">
+        <ion-select-option value="Teame Name 1">Team Name 1</ion-select-option>
+        <ion-select-option value="Team Name 2">Team Name 2</ion-select-option>
+        <ion-select-option value="Team Name 3">Team Name 3</ion-select-option>
+      </ion-select>
+    </ion-item>
+  </ion-list>
+  <!-- Team 2 Selection -->
+  <ion-list>
+    <ion-label class="ion-padding">Team 2</ion-label>
+    <ion-item>
+      <ion-select formControlName="team2" interface="popover" placeholder="Select Team 2">
+        <ion-select-option value="Team Name 4">Team Name 4</ion-select-option>
+        <ion-select-option value="Team Name 5">Team Name 5</ion-select-option>
+        <ion-select-option value="Team Name 6">Team Name 6</ion-select-option>
+      </ion-select>
+    </ion-item>
+  </ion-list>
+  <!-- Round Count -->
+  <ion-item>
+    <ion-label>Total Ends:</ion-label>
+    <ion-input formControlName="rounds" placeholder="enter digit..." type="number" min="0" max="10"></ion-input>
+  </ion-item>
+  <!-- Team 1 Score -->
+  <ion-item>
+    <ion-label>Team 1 Score:</ion-label>
+    <ion-input formControlName="score1" placeholder="enter digit..." type="number" min="0" max="80"></ion-input>
+  </ion-item>
+  <!-- Team 2 Score -->
+  <ion-item>
+    <ion-label>Team 2 Score:</ion-label>
+    <ion-input formControlName="score2" placeholder="enter digit..." type="number" min="0" max="80"></ion-input>
+  </ion-item>
+  <!-- Submit Button -->
+  <ion-button class="ion-padding" id="btnSubmit" [disabled]="formData.invalid" expand="block" type="submit" [fill]="formData.invalid ? 'clear' : 'solid'">
+    Submit Score
+  </ion-button>
+  </form>
+
 </ion-content>
